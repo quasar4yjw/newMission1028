@@ -1,5 +1,7 @@
 package NewMission;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,10 +9,12 @@ public class ExcuteClass {
   static String command;
   static String[] studentInfo;
 
-  public static void main(String[] args) throws RuntimeException{
+  public static void main(String[] args) throws Exception, Error{
     ArrayList<String[]> list = new ArrayList();
     System.out.print("명령> ");
     Scanner scanner = new Scanner(System.in);
+    
+    
     while (!(command = scanner.nextLine())
         .substring(0, 4)
         .equalsIgnoreCase("exit")) {
@@ -141,8 +145,19 @@ public class ExcuteClass {
       System.out.print("\n명령> ");
     }//while
 
-  }
-}
+    
+    FileOutputStream out = new FileOutputStream("score.txt");
+    DataOutputStream out2 = new DataOutputStream(out);
+    for (int i = 0; i < list.size(); i++){
+    out2.writeUTF(list.get(i)[0]+",");
+    out2.writeUTF(list.get(i)[1]+",");
+    out2.writeUTF(list.get(i)[2]+",");
+    out2.writeUTF(list.get(i)[3]);
+    }
+    out2.close();
+    out.close();
+  }//main()
+}//class
 
 
 
