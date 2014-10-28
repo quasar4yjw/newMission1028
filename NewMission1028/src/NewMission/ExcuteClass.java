@@ -146,7 +146,7 @@ public class ExcuteClass {
     }//while
 
     
-    FileOutputStream out = new FileOutputStream("score.txt");
+    FileOutputStream out = new FileOutputStream("score.dat");
     DataOutputStream out2 = new DataOutputStream(out);
     for (int i = 0; i < list.size(); i++){
     out2.writeUTF(list.get(i)[0]+",");
