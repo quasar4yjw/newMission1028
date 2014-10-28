@@ -32,7 +32,7 @@ public class ExcuteClass {
 
 
         for (int i = 0; i < list.size(); i++){
-          System.out.print(i +" "+ list.get(i)[0] 
+          System.out.println(i +" "+ list.get(i)[0] 
               +" "+ list.get(i)[1] 
                   +" "+ list.get(i)[2] 
                       +" "+ list.get(i)[3]);
@@ -59,9 +59,9 @@ public class ExcuteClass {
        
  
         int i = Integer.parseInt(command.substring(5, 6));
-        int total = Integer.parseInt(list.get(i)[0])
-            +Integer.parseInt(list.get(i)[0])
-            +Integer.parseInt(list.get(i)[0]);
+        int total = Integer.parseInt(list.get(i)[1])
+            +Integer.parseInt(list.get(i)[2])
+            +Integer.parseInt(list.get(i)[3]);
         float aver = total / 3f ;
           System.out.println("인덱스: " + i);
           System.out.println("이름: " + list.get(i)[0]);
@@ -71,6 +71,21 @@ public class ExcuteClass {
           System.out.println("합계: " + total);
           System.out.println("평균: " + aver);
       }//if view
+      
+      else if(command
+          .substring(0, 6)
+          .equalsIgnoreCase("delete")) {
+       
+ 
+        int i = Integer.parseInt(command.substring(7, 8));
+        System.out.println(list.get(i)[0] +"의 성적을 삭제하시겠습니까?(y/n)");
+        if (scanner.nextLine().equalsIgnoreCase("y")){
+         System.out.println("삭제하였습니다.");
+         list.remove(i);
+        } else {
+          System.out.println("삭제 취소하였습니다");
+        }
+      }//if delete
 
       System.out.print("\n명령> ");
     }//while
