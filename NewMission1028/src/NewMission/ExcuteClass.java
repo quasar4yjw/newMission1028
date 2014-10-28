@@ -76,11 +76,11 @@ public class ExcuteClass {
           .substring(0, 6)
           .equalsIgnoreCase("delete")) {
 
-        
+
         int i = Integer.parseInt(command.substring(7, 8));
-        if (list.size() >= i){
-           
-           System.out.println("존재하지 않는 인덱스입니다.");
+        if (list.size() <= i){
+
+          System.out.println("존재하지 않는 인덱스입니다.");
         }else{
           System.out.println(list.get(i)[0] +"의 성적을 삭제하시겠습니까?(y/n)");
           if (scanner.nextLine().equalsIgnoreCase("y")){
