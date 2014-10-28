@@ -92,51 +92,51 @@ public class ExcuteClass {
         }
 
       }//if delete
-      
+
       else if(command
           .substring(0, 6)
           .equalsIgnoreCase("update")) {
-        
+
         int i = Integer.parseInt(command.substring(7, 8));
-        
-      String name;
-      String kor;
-      String math;
-      String eng;
 
-      System.out.print("이름 "+list.get(i)[0]+" ");
-      if((name = scanner.nextLine()).equals("")) {
-        name = list.get(i)[0];
-      } else;
+        String name;
+        String kor;
+        String math;
+        String eng;
 
-      System.out.print("국어 "+list.get(i)[1]+" ");
-      if((kor = scanner.nextLine()).equals("")) {
-        kor = list.get(i)[1];
-      } else;
+        System.out.print("이름 "+list.get(i)[0]+" ");
+        if((name = scanner.nextLine()).equals("")) {
+          name = list.get(i)[0];
+        } else;
 
-      System.out.print("수학 "+list.get(i)[2]+" ");
-      if((math = scanner.nextLine()).equals("")) {
-        math = list.get(i)[2];
-      } else;
+        System.out.print("국어 "+list.get(i)[1]+" ");
+        if((kor = scanner.nextLine()).equals("")) {
+          kor = list.get(i)[1];
+        } else;
 
-      System.out.print("영어 "+list.get(i)[3]+" ");
-      if((eng = scanner.nextLine()).equals("")) {
-        eng = list.get(i)[3];
-      } else;
+        System.out.print("수학 "+list.get(i)[2]+" ");
+        if((math = scanner.nextLine()).equals("")) {
+          math = list.get(i)[2];
+        } else;
 
-      System.out.println("정말 변경하시겠습니까?(y/n)");
-      if(scanner.nextLine().equalsIgnoreCase("y")) {
-        list.get(i)[0] = name;
-        list.get(i)[1] = kor;
-        list.get(i)[2] = math;
-        list.get(i)[3] = eng;
-        System.out.println("변경하였습니다.");
-      } else if(scanner.nextLine().equalsIgnoreCase("n")) {
-        System.out.println("변경 취소하였습니다.");
-      }
+        System.out.print("영어 "+list.get(i)[3]+" ");
+        if((eng = scanner.nextLine()).equals("")) {
+          eng = list.get(i)[3];
+        } else;
+
+        System.out.println("정말 변경하시겠습니까?(y/n)");
+        if(scanner.nextLine().equalsIgnoreCase("y")) {
+          list.get(i)[0] = name;
+          list.get(i)[1] = kor;
+          list.get(i)[2] = math;
+          list.get(i)[3] = eng;
+          System.out.println("변경하였습니다.");
+        } else {
+          System.out.println("변경 취소하였습니다.");
+        }
 
 
-      }
+      }//if update
 
       System.out.print("\n명령> ");
     }//while

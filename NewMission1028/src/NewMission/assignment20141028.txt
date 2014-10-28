@@ -42,6 +42,7 @@ exit
 //okay
 명령> delete 2
 존재하지 않는 인덱스입니다.
+//okay
 
 명령> view 1
 인덱스: 1
