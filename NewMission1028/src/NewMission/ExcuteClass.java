@@ -204,6 +204,8 @@ public class ExcuteClass {
     } // 아무것도 입력안하거나 글자수 짧거나 
     //등등 에러 캐치하고 main메소드 다시 실행
   }//rotate()
+
+
 }//class
 
 
