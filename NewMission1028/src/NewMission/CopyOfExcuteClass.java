@@ -56,6 +56,17 @@ public class CopyOfExcuteClass {
         }else if(ss.equals("n")){
           System.out.println("삭제 취소하였습니다.");
         }
+      } else if(command.substring(0, 6).equals("update")){
+        int i = Integer.parseInt(command.substring(7, 8));
+        String name;
+        String kor;
+        String eng;
+        String math;
+        System.out.print("이름("+ list.get(i)[0] + ")? ");
+        if((name = scanner.nextLine()).equals("")){
+          name = list.get(i)[0];
+        }
+        
       }
        
       System.out.print("\n명령> ");
