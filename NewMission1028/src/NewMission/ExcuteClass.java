@@ -10,8 +10,6 @@ import java.util.Scanner;
 
 public class ExcuteClass {
   static String command;
-  static String[] studentInfo = {"", "", "", ""};
-  static String content;
 
   public static void main(String[] args) throws Exception, Error{
     ArrayList<String[]> list = new ArrayList();
@@ -19,26 +17,18 @@ public class ExcuteClass {
 
     FileInputStream in = new FileInputStream("score.dat");
     DataInputStream in2 = new DataInputStream(in);
-    DataInputStream in3 = new DataInputStream(in);
-    String b ="";
+    String b = "";
     try{
       int i = 0;
       while(!(b = in2.readUTF()).equals("")) {
         list.add(b.split(","));
-        studentInfo[i++] = b;
       }//while readUTF
     }//try
     catch(EOFException ex){
 
-    }
+    }//catch
 
 
-    System.out.println(studentInfo[0]);
-    System.out.println(studentInfo[1]);
-    System.out.println(studentInfo[2]);
-    /*System.out.println(in2.readUTF());
-    System.out.println(in2.readUTF());*/
-    //list.add(content.split(","));
 
     in2.close();
     in.close();
