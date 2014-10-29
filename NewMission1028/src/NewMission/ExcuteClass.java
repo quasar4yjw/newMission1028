@@ -17,39 +17,29 @@ public class ExcuteClass {
     FileInputStream in = null;
     DataInputStream in2 = null;
     try{
+
       in = new FileInputStream("score.dat");
       in2 = new DataInputStream(in);
-
-
       String b = "";
+
       try{
+
         while(!(b = in2.readUTF()).equals("")) {
           list.add(b.split(","));
-
-
         }//while readUTF
+
         in2.close();
         in.close();
+
       }//try
 
-
       catch(EOFException ex){
-
-      }//catch
-
+      }//catch nullRead
 
     }catch(FileNotFoundException ex){
-
-    }
-
-
-
-
+    }//catch noData
 
     rotate(list);
-
-
-
 
   }//main()
 
@@ -202,7 +192,7 @@ public class ExcuteClass {
     } catch (RuntimeException ex){
       rotate(list);
     } // 아무것도 입력안하거나 글자수 짧거나 
-    //등등 에러 캐치하고 main메소드 다시 실행
+      //등등 에러 캐치하고 main메소드 다시 실행
   }//rotate()
 
 
