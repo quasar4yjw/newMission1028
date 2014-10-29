@@ -19,7 +19,6 @@ public class ExcuteClass {
     DataInputStream in2 = new DataInputStream(in);
     String b = "";
     try{
-      int i = 0;
       while(!(b = in2.readUTF()).equals("")) {
         list.add(b.split(","));
       }//while readUTF
@@ -181,7 +180,7 @@ public class ExcuteClass {
       main(args);
     } // 아무것도 입력안하거나 글자수 짧거나 
     //등등 에러 캐치하고 main메소드 다시 실행
-    
+
   }//main()
 }//class
 
