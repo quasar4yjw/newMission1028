@@ -1,20 +1,51 @@
 package NewMission;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ExcuteClass {
   static String command;
-  static String[] studentInfo;
+  static String[] studentInfo = {"", "", "", ""};
+  static String content;
 
   public static void main(String[] args) throws Exception, Error{
     ArrayList<String[]> list = new ArrayList();
+
+
+    FileInputStream in = new FileInputStream("score.dat");
+    DataInputStream in2 = new DataInputStream(in);
+    DataInputStream in3 = new DataInputStream(in);
+    String b ="";
+    try{
+      int i = 0;
+      while(!(b = in2.readUTF()).equals("")) {
+        list.add(b.split(","));
+        studentInfo[i++] = b;
+      }//while readUTF
+    }//try
+    catch(EOFException ex){
+
+    }
+
+
+    System.out.println(studentInfo[0]);
+    System.out.println(studentInfo[1]);
+    System.out.println(studentInfo[2]);
+    /*System.out.println(in2.readUTF());
+    System.out.println(in2.readUTF());*/
+    //list.add(content.split(","));
+
+    in2.close();
+    in.close();
+
     System.out.print("명령> ");
     Scanner scanner = new Scanner(System.in);
-    
-    
+
     while (!(command = scanner.nextLine())
         .substring(0, 4)
         .equalsIgnoreCase("exit")) {
@@ -145,14 +176,14 @@ public class ExcuteClass {
       System.out.print("\n명령> ");
     }//while
 
-    
+
     FileOutputStream out = new FileOutputStream("score.dat");
     DataOutputStream out2 = new DataOutputStream(out);
     for (int i = 0; i < list.size(); i++){
-    out2.writeUTF(list.get(i)[0]+",");
-    out2.writeUTF(list.get(i)[1]+",");
-    out2.writeUTF(list.get(i)[2]+",");
-    out2.writeUTF(list.get(i)[3]);
+      out2.writeUTF(list.get(i)[0]+","
+          +list.get(i)[1]+","
+          +list.get(i)[2]+","
+          +list.get(i)[3]);
     }
     out2.close();
     out.close();
