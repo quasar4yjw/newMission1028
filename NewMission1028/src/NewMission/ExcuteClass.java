@@ -160,7 +160,7 @@ public class ExcuteClass {
             eng = list.get(i)[3];
           } else;
 
-          System.out.println("정말 변경하시겠습니까?(y/n)");
+          System.out.print("정말 변경하시겠습니까?(y/n) ");
           if(scanner.nextLine().equalsIgnoreCase("y")) {
             list.get(i)[0] = name;
             list.get(i)[1] = kor;
