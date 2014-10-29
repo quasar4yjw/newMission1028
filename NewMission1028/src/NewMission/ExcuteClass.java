@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -13,24 +14,34 @@ public class ExcuteClass {
 
   public static void main(String[] args) throws Exception, Error{
     ArrayList<String[]> list = new ArrayList();
-
-
-    FileInputStream in = new FileInputStream("score.dat");
-    DataInputStream in2 = new DataInputStream(in);
-    String b = "";
+    FileInputStream in = null;
+    DataInputStream in2 = null;
     try{
-      while(!(b = in2.readUTF()).equals("")) {
-        list.add(b.split(","));
-      }//while readUTF
-    }//try
-    catch(EOFException ex){
 
-    }//catch
+      in = new FileInputStream("score.dat");
+      in2 = new DataInputStream(in);
+
+      String b = "";
+      try{
+        while(!(b = in2.readUTF()).equals("")) {
+          list.add(b.split(","));
+          
+          in2.close();
+          in.close();
+        }//while readUTF
+      }//try
+      catch(EOFException ex){
+
+      }//catch
+      
+    }catch(FileNotFoundException ex){
+      System.out.println("파일이 없습니다");
+    }
 
 
 
-    in2.close();
-    in.close();
+
+    
 
     System.out.print("명령> ");
     Scanner scanner = new Scanner(System.in);
