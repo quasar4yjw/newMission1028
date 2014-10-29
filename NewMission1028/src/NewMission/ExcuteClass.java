@@ -13,36 +13,47 @@ public class ExcuteClass {
   static String command;
 
   public static void main(String[] args) throws Exception, Error{
-    ArrayList<String[]> list = new ArrayList();
+    ArrayList<String[]> list = new ArrayList();  
     FileInputStream in = null;
     DataInputStream in2 = null;
     try{
-
       in = new FileInputStream("score.dat");
       in2 = new DataInputStream(in);
+
 
       String b = "";
       try{
         while(!(b = in2.readUTF()).equals("")) {
           list.add(b.split(","));
-          
-          in2.close();
-          in.close();
+
+
         }//while readUTF
+        in2.close();
+        in.close();
       }//try
+
+
       catch(EOFException ex){
 
       }//catch
-      
+
+
     }catch(FileNotFoundException ex){
-      System.out.println("파일이 없습니다");
+
     }
 
 
 
 
-    
 
+    rotate(list);
+
+
+
+
+  }//main()
+
+  public static void rotate(ArrayList<String[]> list) throws Exception{
     System.out.print("명령> ");
     Scanner scanner = new Scanner(System.in);
     try{
@@ -187,12 +198,12 @@ public class ExcuteClass {
       }
       out2.close();
       out.close();
-    }catch (RuntimeException ex){
-      main(args);
+
+    } catch (RuntimeException ex){
+      rotate(list);
     } // 아무것도 입력안하거나 글자수 짧거나 
     //등등 에러 캐치하고 main메소드 다시 실행
-
-  }//main()
+  }//rotate()
 }//class
 
 
