@@ -6,4 +6,4 @@ CRUD Project
 
 Practice console for 'Command Pattern'
 
-Jungwoo YEOM, Minjoon SONG(aswns08)
+Jungwoo YEOM / Minjoon SONG(aswns08)
